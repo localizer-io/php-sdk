@@ -33,4 +33,6 @@ array (
 ```
 
 ## Commands list
-Coming soon...
+```php
+$client->getProjectList($offset = 0, $count = 25)
+```
