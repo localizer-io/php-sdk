@@ -15,25 +15,21 @@ $client = new Localizer_Client(
     )
 );
 
-var_dump(
+var_export(
     $client->getProjectList()
 );
 ```
 Output will be:
 ```php
-array(1) {
-  [0]=>
-  array(4) {
-    ["id"]=>
-    int(1)
-    ["name"]=>
-    string(12) "localizer.io"
-    ["counter_sections"]=>
-    int(1)
-    ["last_activity"]=>
-    NULL
-  }
-}
+array (
+  0 => 
+  array (
+    'id'                => 1,
+    'name'              => 'localizer.io',
+    'counter_sections'  => 1,
+    'last_activity'     => NULL,
+  ),
+)
 ```
 
 ## Commands list
