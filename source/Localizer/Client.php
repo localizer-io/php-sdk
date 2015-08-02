@@ -17,6 +17,14 @@ class Localizer_Client
     private $_base_url = 'https://localizer.io/';
 
     /**
+     * Key
+     *
+     * @var string
+     */
+
+    private $_key;
+
+    /**
      * Options
      *
      * @var array
@@ -40,8 +48,11 @@ class Localizer_Client
 
     public function __construct(array $options)
     {
-        if (!array_key_exists('api_key', $options))
-            throw new BadMethodCallException('`api_key` missed in options');
+        if (!array_key_exists('key', $options))
+            throw new BadMethodCallException('`key` missed in options');
+
+        $this->_key = (string) $options['key'];
+        unset($options['key']);
 
         // For tests etc
         if (array_key_exists('base_url', $options))
@@ -70,7 +81,7 @@ class Localizer_Client
                 'query' => array(
                     'offset'    => (int) $offset,
                     'count'     => (int) $count,
-                    'key'       => (string) $this->_options['api_key'],
+                    'key'       => $this->_key,
                 ),
             )
         );
