@@ -17,6 +17,14 @@ class Localizer_Client
     private $_base_url = 'https://localizer.io/api/';
 
     /**
+     * Options
+     *
+     * @var array
+     */
+
+    private $_options = array();
+
+    /**
      * Transport
      *
      * @var object
@@ -41,6 +49,8 @@ class Localizer_Client
             $this->_base_url = $options['base_url'];
             unset($options['base_url']);
         }
+
+        $this->_options = $options;
     }
 
     /**
@@ -133,8 +143,11 @@ class Localizer_Client
     {
         return new GuzzleHttp\Client(
             array(
-                'base_uri' => rtrim($this->_base_url, '/') . '/',
-                'timeout'  => 30.0,
+                'base_uri'  => rtrim($this->_base_url, '/') . '/',
+                'query'     => array(
+                    'key' => $this->_options['api_key'],
+                ),
+                'timeout'   => 30.0,
             )
         );
     }
