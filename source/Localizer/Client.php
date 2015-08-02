@@ -119,8 +119,8 @@ class Localizer_Client
     /**
      * Post project section create by data
      *
-     * @param int $project_id
-     * @param mixed $content
+     * @param int    $project_id
+     * @param mixed  $content
      * @param string $format
      * @param string $name
      *
@@ -143,8 +143,8 @@ class Localizer_Client
                         'name'     => 'file',
                         'contents' => $content,
                         'filename' => 'php-sdk-' . microtime(true) . '.json',
-                    )
-                )
+                    ),
+                ),
             )
         );
 
@@ -154,8 +154,8 @@ class Localizer_Client
     /**
      * Post project section update by data
      *
-     * @param int $section_id
-     * @param mixed $content
+     * @param int    $section_id
+     * @param mixed  $content
      * @param string $format
      * @param string $name
      *
@@ -178,8 +178,8 @@ class Localizer_Client
                         'name'     => 'file',
                         'contents' => $content,
                         'filename' => 'php-sdk-' . microtime(true) . '.json',
-                    )
-                )
+                    ),
+                ),
             )
         );
 
