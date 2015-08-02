@@ -9,7 +9,7 @@ composer require localizer-io/php-sdk
 ## Example
 
 ```php
-$client = new Localizer_Client(
+$client = Localizer_Client::apishka(
     array(
         'api_key' => '<YOUR_API_KEY>',
     )

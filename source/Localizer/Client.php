@@ -3,11 +3,19 @@
 /**
  * Localizer client
  *
+ * @uses    Apishka\EasyExtend\Helper\ByClassNameTrait
+ *
  * @author Alexander "grevus" Lobtsov <alex@lobtsov.com>
  */
 
 class Localizer_Client
 {
+    /**
+     * Easy extends
+     */
+
+    use \Apishka\EasyExtend\Helper\ByClassNameTrait;
+
     /**
      * Base url
      *
