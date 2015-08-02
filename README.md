@@ -22,7 +22,7 @@ var_export(
 Output will be:
 ```php
 array (
-  0 => 
+  0 =>
   array (
     'id'                => 1,
     'name'              => 'localizer.io',
@@ -32,7 +32,23 @@ array (
 )
 ```
 
+## Available formats: code
+* Localizer: localizer
+
 ## Commands list
 ```php
 $client->getProjectList($offset = 0, $count = 25);
+$client->getProjectSectionList($project_id, $offset = 0, $count = 25);
+$client->postProjectSectionCreateByData(
+    $project_id,
+    $content,       // raw json or fopen('file_path', 'r')
+    $format,        // Available codes see below
+    $name = null
+);
+$client->postProjectSectionUpdateByData(
+    $section_id,
+    $content,       // raw json or fopen('file_path', 'r')
+    $format,        // Available codes see below
+    $name = null
+);
 ```
