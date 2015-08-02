@@ -3,7 +3,7 @@
 Use composer:
 
 ```
-composer install localizer-io/php-sdk
+composer require localizer-io/php-sdk
 ```
 
 ## Example
@@ -34,5 +34,5 @@ array (
 
 ## Commands list
 ```php
-$client->getProjectList($offset = 0, $count = 25)
+$client->getProjectList($offset = 0, $count = 25);
 ```
