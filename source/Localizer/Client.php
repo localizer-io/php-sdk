@@ -14,7 +14,7 @@ class Localizer_Client
      * @var string
      */
 
-    private $_base_url = 'https://localizer.io/api/';
+    private $_base_url = 'https://localizer.io/';
 
     /**
      * Options
@@ -65,11 +65,12 @@ class Localizer_Client
     public function getProjectList($offset = 0, $count = 25)
     {
         $response = $this->getTransport()->get(
-            'project/list',
+            'api/project/list.json',
             array(
                 'query' => array(
                     'offset'    => (int) $offset,
                     'count'     => (int) $count,
+                    'key'       => (string) $this->_options['api_key'],
                 ),
             )
         );
@@ -98,7 +99,7 @@ class Localizer_Client
         if ($data === false || !is_array($data))
             throw new RuntimeException('Wrong json in answer');
 
-        if (array_key_exists('error', $data))
+        if ($data['error'] !== null)
             throw new RuntimeException('Server return an error: ' . var_export($data['error']['message'], true));
 
         return $data['result'];
@@ -144,9 +145,6 @@ class Localizer_Client
         return new GuzzleHttp\Client(
             array(
                 'base_uri'  => rtrim($this->_base_url, '/') . '/',
-                'query'     => array(
-                    'key' => $this->_options['api_key'],
-                ),
                 'timeout'   => 30.0,
             )
         );
