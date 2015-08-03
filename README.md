@@ -22,8 +22,7 @@ var_export(
 Output will be:
 ```php
 array (
-  0 =>
-  array (
+  'projects' => array(
     'id'                => 1,
     'name'              => 'localizer.io',
     'counter_sections'  => 1,
@@ -44,18 +43,17 @@ $client->getProjectList($offset = 0, $count = 25);
 $client->getProjectSectionList($project_id, $offset = 0, $count = 25);
 
 // Create section with data
-$client->postProjectSectionCreateByData(
+$client->postProjectSectionUpsert(
     $project_id,
-    $content,       // raw json or fopen('file_path', 'r')
-    $format,        // Available codes see below
-    $name = null
+    $section_code,
+    $name
 );
 
 // Update section by data
-$client->postProjectSectionUpdateByData(
-    $section_id,
+$client->postProjectSectionUpload(
+    $project_id,
+    $section_code,
     $content,       // raw json or fopen('file_path', 'r')
-    $format,        // Available codes see below
-    $name = null
+    $format        // Available codes see above
 );
 ```

@@ -125,33 +125,25 @@ class Localizer_Client
     }
 
     /**
-     * Post project section create by data
+     * Post project section upsert
      *
      * @param int    $project_id
-     * @param mixed  $content
-     * @param string $format
+     * @param string $code
      * @param string $name
      *
      * @return array
      */
 
-    public function postProjectSectionCreateByData($project_id, $content, $format, $name = null)
+    public function postProjectSectionUpsert($project_id, $code, $name)
     {
-        $response = $this->getTransport()->post(
-            'api/project/section/create/by/file.json',
+        $response = $this->getTransport()->get(
+            'api/project/section/upsert.json',
             array(
                 'query' => array(
                     'project_id'    => (int) $project_id,
-                    'format'        => (string) $format,
+                    'code'          => (string) $code,
                     'name'          => (string) $name,
                     'key'           => $this->_key,
-                ),
-                'multipart' => array(
-                    array(
-                        'name'     => 'file',
-                        'contents' => $content,
-                        'filename' => 'php-sdk-' . microtime(true) . '.json',
-                    ),
                 ),
             )
         );
@@ -160,23 +152,24 @@ class Localizer_Client
     }
 
     /**
-     * Post project section update by data
+     * Post project section upload
      *
-     * @param int    $section_id
+     * @param int    $project_id
+     * @param string $section_code
      * @param mixed  $content
      * @param string $format
-     * @param string $name
      *
      * @return array
      */
 
-    public function postProjectSectionUpdateByData($section_id, $content, $format, $name = null)
+    public function postProjectSectionUpload($project_id, $section_code, $content, $format)
     {
         $response = $this->getTransport()->post(
-            'api/project/section/update/by/file.json',
+            'api/project/section/upload.json',
             array(
                 'query' => array(
-                    'section_id'    => (int) $section_id,
+                    'project_id'    => (int) $project_id,
+                    'code'          => (string) $section_code,
                     'format'        => (string) $format,
                     'name'          => (string) $name,
                     'key'           => $this->_key,
