@@ -11,7 +11,7 @@ composer require localizer-io/php-sdk
 ```php
 $client = Localizer_Client::apishka(
     array(
-        'api_key' => '<YOUR_API_KEY>',
+        'key' => '<YOUR_API_KEY>',
     )
 );
 
