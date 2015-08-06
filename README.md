@@ -60,7 +60,6 @@ $client->postProjectSectionUpload(
 // Get translations by locale
 $client->postProjectSectionUpload(
     $project_id,
-    $section_code,
-    $locale         // Example: en_US, ru_RU
+    $section_code
 );
 ```

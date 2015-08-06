@@ -192,13 +192,11 @@ class Localizer_Client
      *
      * @param int    $project_id
      * @param string $section_code
-     * @param mixed  $content
-     * @param string $format
      *
      * @return array
      */
 
-    public function getTranslations($project_id, $section_code, $locale)
+    public function getTranslations($project_id, $section_code)
     {
         $response = $this->getTransport()->get(
             'api/localization/translations.json',
@@ -206,7 +204,6 @@ class Localizer_Client
                 'query' => array(
                     'project_id'    => (int) $project_id,
                     'section_code'  => (string) $section_code,
-                    'locale'        => (string) $locale,
                     'key'           => $this->_key,
                 )
             )
