@@ -188,6 +188,34 @@ class Localizer_Client
     }
 
     /**
+     * Post project section upload
+     *
+     * @param int    $project_id
+     * @param string $section_code
+     * @param mixed  $content
+     * @param string $format
+     *
+     * @return array
+     */
+
+    public function getTranslations($project_id, $section_code, $locale)
+    {
+        $response = $this->getTransport()->get(
+            'api/localization/translations.json',
+            array(
+                'query' => array(
+                    'project_id'    => (int) $project_id,
+                    'code'          => (string) $section_code,
+                    'locale'        => (string) $locale,
+                    'key'           => $this->_key,
+                )
+            )
+        );
+
+        return $this->processAnswer($response);
+    }
+
+    /**
      * Process answer
      *
      * @param \Guzzle $response

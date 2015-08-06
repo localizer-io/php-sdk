@@ -54,6 +54,13 @@ $client->postProjectSectionUpload(
     $project_id,
     $section_code,
     $content,       // raw json or fopen('file_path', 'r')
-    $format        // Available codes see above
+    $format         // Available codes see above
+);
+
+// Get translations by locale
+$client->postProjectSectionUpload(
+    $project_id,
+    $section_code,
+    $locale         // Example: en_US, ru_RU
 );
 ```
