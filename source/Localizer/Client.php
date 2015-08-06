@@ -205,7 +205,7 @@ class Localizer_Client
             array(
                 'query' => array(
                     'project_id'    => (int) $project_id,
-                    'code'          => (string) $section_code,
+                    'section_code'  => (string) $section_code,
                     'locale'        => (string) $locale,
                     'key'           => $this->_key,
                 )
