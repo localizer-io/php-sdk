@@ -227,7 +227,7 @@ class Localizer_Client
 
     public function postTranslate($project_id, $section_code, $locale, $object_key, $translation, $variant = '[]')
     {
-        $response = $this->getTransport()->get(
+        $response = $this->getTransport()->post(
             'api/localization/translate.json',
             array(
                 'query' => array(
