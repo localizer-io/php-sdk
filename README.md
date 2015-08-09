@@ -58,8 +58,18 @@ $client->postProjectSectionUpload(
 );
 
 // Get translations by locale
-$client->postProjectSectionUpload(
+$client->getTranslations(
     $project_id,
     $section_code
+);
+
+// Translate
+$client->getTranslations(
+    $project_id,
+    $section_code,
+    $locale,        // Example: en_US, ru_RU
+    $object_key,
+    $translation,
+    $variant
 );
 ```

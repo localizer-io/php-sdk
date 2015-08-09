@@ -188,7 +188,7 @@ class Localizer_Client
     }
 
     /**
-     * Post project section upload
+     * Get translations
      *
      * @param int    $project_id
      * @param string $section_code
@@ -204,6 +204,39 @@ class Localizer_Client
                 'query' => array(
                     'project_id'    => (int) $project_id,
                     'section_code'  => (string) $section_code,
+                    'key'           => $this->_key,
+                )
+            )
+        );
+
+        return $this->processAnswer($response);
+    }
+
+    /**
+     * Post translate
+     *
+     * @param int    $project_id
+     * @param string $section_code
+     * @param string $locale
+     * @param string $object_key
+     * @param string $translation
+     * @param string $variant
+     *
+     * @return array
+     */
+
+    public function postTranslate($project_id, $section_code, $locale, $object_key, $translation, $variant = '[]')
+    {
+        $response = $this->getTransport()->get(
+            'api/localization/translate.json',
+            array(
+                'query' => array(
+                    'project_id'    => (int) $project_id,
+                    'section_code'  => (string) $section_code,
+                    'locale'        => (string) $locale,
+                    'object_key'    => (string) $object_key,
+                    'translation'   => (string) $translation,
+                    'variant'       => (string) $variant,
                     'key'           => $this->_key,
                 )
             )
