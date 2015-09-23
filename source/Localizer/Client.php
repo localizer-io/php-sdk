@@ -171,15 +171,10 @@ class Localizer_Client
                     'project_id'    => (int) $project_id,
                     'code'          => (string) $section_code,
                     'format'        => (string) $format,
-                    'name'          => (string) $name,
                     'key'           => $this->_key,
                 ),
-                'multipart' => array(
-                    array(
-                        'name'     => 'file',
-                        'contents' => $content,
-                        'filename' => 'php-sdk-' . microtime(true) . '.json',
-                    ),
+                'body' => array(
+                    'file' => $content,
                 ),
             )
         );
@@ -311,8 +306,10 @@ class Localizer_Client
     {
         return new GuzzleHttp\Client(
             array(
-                'base_uri'  => rtrim($this->_base_url, '/') . '/',
-                'timeout'   => 30.0,
+                'base_url'  => rtrim($this->_base_url, '/') . '/',
+                'defaults'  => array(
+                    'connect_timeout' => 30.0,
+                ),
             )
         );
     }
