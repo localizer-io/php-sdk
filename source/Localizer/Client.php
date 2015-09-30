@@ -86,6 +86,7 @@ class Localizer_Client
         $response = $this->getTransport()->get(
             'api/project/list.json',
             array(
+                'verify' => false,
                 'query' => array(
                     'offset'    => (int) $offset,
                     'count'     => (int) $count,
@@ -112,6 +113,7 @@ class Localizer_Client
         $response = $this->getTransport()->get(
             'api/project/section/list.json',
             array(
+                'verify' => false,
                 'query' => array(
                     'project_id'    => (int) $project_id,
                     'offset'        => (int) $offset,
@@ -139,6 +141,7 @@ class Localizer_Client
         $response = $this->getTransport()->get(
             'api/project/section/upsert.json',
             array(
+                'verify' => false,
                 'query' => array(
                     'project_id'    => (int) $project_id,
                     'code'          => (string) $code,
@@ -167,6 +170,7 @@ class Localizer_Client
         $response = $this->getTransport()->post(
             'api/project/section/upload.json',
             array(
+                'verify' => false,
                 'query' => array(
                     'project_id'    => (int) $project_id,
                     'code'          => (string) $section_code,
@@ -196,6 +200,7 @@ class Localizer_Client
         $response = $this->getTransport()->get(
             'api/localization/translations.json',
             array(
+                'verify' => false,
                 'query' => array(
                     'project_id'    => (int) $project_id,
                     'section_code'  => (string) $section_code,
@@ -225,6 +230,7 @@ class Localizer_Client
         $response = $this->getTransport()->post(
             'api/localization/translate.json',
             array(
+                'verify' => false,
                 'query' => array(
                     'project_id'    => (int) $project_id,
                     'section_code'  => (string) $section_code,
