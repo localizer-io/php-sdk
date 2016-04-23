@@ -2,10 +2,6 @@
 
 /**
  * Localizer client
- *
- * @uses    Apishka\EasyExtend\Helper\ByClassNameTrait
- *
- * @author Alexander "grevus" Lobtsov <alex@lobtsov.com>
  */
 
 class Localizer_Client
@@ -22,7 +18,7 @@ class Localizer_Client
      * @var string
      */
 
-    private $_base_url = 'https://localizer.io/';
+    private $_base_url = null;
 
     /**
      * Key
@@ -87,7 +83,7 @@ class Localizer_Client
             'api/project/list.json',
             array(
                 'verify' => false,
-                'query' => array(
+                'query'  => array(
                     'offset'    => (int) $offset,
                     'count'     => (int) $count,
                     'key'       => $this->_key,
@@ -114,7 +110,7 @@ class Localizer_Client
             'api/project/section/list.json',
             array(
                 'verify' => false,
-                'query' => array(
+                'query'  => array(
                     'project_id'    => (int) $project_id,
                     'offset'        => (int) $offset,
                     'count'         => (int) $count,
@@ -142,7 +138,7 @@ class Localizer_Client
             'api/project/section/upsert.json',
             array(
                 'verify' => false,
-                'query' => array(
+                'query'  => array(
                     'project_id'    => (int) $project_id,
                     'code'          => (string) $code,
                     'name'          => (string) $name,
@@ -171,7 +167,7 @@ class Localizer_Client
             'api/project/section/upload.json',
             array(
                 'verify' => false,
-                'query' => array(
+                'query'  => array(
                     'project_id'    => (int) $project_id,
                     'code'          => (string) $section_code,
                     'format'        => (string) $format,
@@ -201,11 +197,11 @@ class Localizer_Client
             'api/localization/translations.json',
             array(
                 'verify' => false,
-                'query' => array(
+                'query'  => array(
                     'project_id'    => (int) $project_id,
                     'section_code'  => (string) $section_code,
                     'key'           => $this->_key,
-                )
+                ),
             )
         );
 
@@ -231,7 +227,7 @@ class Localizer_Client
             'api/localization/translate.json',
             array(
                 'verify' => false,
-                'query' => array(
+                'query'  => array(
                     'project_id'    => (int) $project_id,
                     'section_code'  => (string) $section_code,
                     'locale'        => (string) $locale,
@@ -239,7 +235,7 @@ class Localizer_Client
                     'translation'   => (string) $translation,
                     'variant'       => (string) $variant,
                     'key'           => $this->_key,
-                )
+                ),
             )
         );
 
@@ -303,6 +299,20 @@ class Localizer_Client
     }
 
     /**
+     * Get base url
+     *
+     * @return string
+     */
+
+    protected function getBaseUrl()
+    {
+        if (!$this->_base_url)
+            return 'https://localizer.io/';
+
+        return $this->_base_url;
+    }
+
+    /**
      * Init transport
      *
      * @return GuzzleHttp\Client
@@ -312,7 +322,7 @@ class Localizer_Client
     {
         return new GuzzleHttp\Client(
             array(
-                'base_url'  => rtrim($this->_base_url, '/') . '/',
+                'base_url'  => rtrim($this->getBaseUrl(), '/') . '/',
                 'defaults'  => array(
                     'connect_timeout' => 30.0,
                 ),
