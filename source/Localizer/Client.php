@@ -173,8 +173,11 @@ class Localizer_Client
                     'format'        => (string) $format,
                     'key'           => $this->_key,
                 ),
-                'body' => array(
-                    'file' => $content,
+                'multipart' => array(
+                    array(
+                        'name'      => 'file',
+                        'contents'  => $content,
+                    ),
                 ),
             )
         );
@@ -322,10 +325,8 @@ class Localizer_Client
     {
         return new GuzzleHttp\Client(
             array(
-                'base_url'  => rtrim($this->getBaseUrl(), '/') . '/',
-                'defaults'  => array(
-                    'connect_timeout' => 30.0,
-                ),
+                'base_uri'  => rtrim($this->getBaseUrl(), '/') . '/',
+                'timeout'   => 30.0,
             )
         );
     }

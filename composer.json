@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=5.6",
-        "guzzlehttp/guzzle": "~5.3",
+        "guzzlehttp/guzzle": "~6.2",
         "apishka/easy-extend": "^1.2.7"
     },
     "require-dev": {
