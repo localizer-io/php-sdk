@@ -236,16 +236,16 @@
         },
         {
             "name": "psr/http-message",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": ""
             },
             "require": {
@@ -273,6 +273,7 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -281,7 +282,7 @@
                 "request",
                 "response"
             ],
-            "time": "2015-05-04 20:22:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "symfony/console",
@@ -455,16 +456,16 @@
     "packages-dev": [
         {
             "name": "apishka/cs",
-            "version": "1.0.5",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apishka/cs.git",
-                "reference": "54abe967ea05df8406d3b7e8bf06c7663879b556"
+                "reference": "03929716a47b2f3723e45c836010a73711336d5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apishka/cs/zipball/54abe967ea05df8406d3b7e8bf06c7663879b556",
-                "reference": "54abe967ea05df8406d3b7e8bf06c7663879b556",
+                "url": "https://api.github.com/repos/apishka/cs/zipball/03929716a47b2f3723e45c836010a73711336d5b",
+                "reference": "03929716a47b2f3723e45c836010a73711336d5b",
                 "shasum": ""
             },
             "type": "library",
@@ -482,7 +483,7 @@
                 "cs",
                 "style"
             ],
-            "time": "2016-08-02 07:36:17"
+            "time": "2016-08-19 19:25:43"
         }
     ],
     "aliases": [],
