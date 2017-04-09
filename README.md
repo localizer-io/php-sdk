@@ -26,7 +26,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 
 Then run `composer install`
 
-Or run `composer require localizer-io/php-sdk` 
+Or run `composer require localizer-io/php-sdk`
 
 ### Manual Installation
 
@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**updateProject**](docs/Api/ProjectsApi.md#updateproject) | **PUT** /project/{project_id} | Update project
 *ProjectsApi* | [**updateSection**](docs/Api/ProjectsApi.md#updatesection) | **PUT** /project/{project_id}/section/{section_code} | Update section
 *ProjectsApi* | [**uploadSectionTranslations**](docs/Api/ProjectsApi.md#uploadsectiontranslations) | **POST** /project/{project_id}/section/{section_code}/translations | Upload translations to section
+*ProjectsApi* | [**upsertSection**](docs/Api/ProjectsApi.md#upsertsection) | **POST** /project/{project_id}/section/upsert | Create or edit section
 
 
 ## Documentation For Models
