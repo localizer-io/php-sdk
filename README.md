@@ -18,19 +18,15 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 
 ```
 {
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/localizer-io/php-sdk.git"
-    }
-  ],
   "require": {
-    "localizer-io/php-sdk": "*@dev"
+    "localizer-io/php-sdk": "^2.0.0"
   }
 }
 ```
 
 Then run `composer install`
+
+Or run `composer require localizer-io/php-sdk` 
 
 ### Manual Installation
 
