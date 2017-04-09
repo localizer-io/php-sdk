@@ -1,6 +1,6 @@
 # Localizer\Client\LanguagesApi
 
-All URIs are relative to *https://localizer.io/api/1.0*
+All URIs are relative to *https://localizer.io/api/2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
